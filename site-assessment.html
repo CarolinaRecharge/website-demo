@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Assessment & Planning - Carolina Recharge</title>
+    <meta name="description" content="Learn how Carolina Recharge plans cost-efficient EV charging station locations with optimal placement, signage, and infrastructure design.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Additional styles specific to this page */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--dark-gray);
+            margin: 0 0.5rem;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+            opacity: 0.2;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,102,204,0.3);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Interactive Diagram Sections */
+        .diagram-section {
+            padding: 4rem 0;
+        }
+
+        .diagram-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .diagram-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .parking-lot-diagram {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .parking-spot {
+            fill: #e9ecef;
+            stroke: #6c757d;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .parking-spot:hover {
+            fill: #d4edff;
+        }
+
+        .parking-spot.optimal {
+            fill: #d4edda;
+            stroke: var(--accent-green);
+            stroke-width: 3;
+        }
+
+        .parking-spot.suboptimal {
+            fill: #fff3cd;
+            stroke: #ffc107;
+            stroke-width: 2;
+        }
+
+        .parking-spot.poor {
+            fill: #f8d7da;
+            stroke: #dc3545;
+            stroke-width: 2;
+        }
+
+        .charger-icon {
+            cursor: pointer;
+        }
+
+        .legend {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid #333;
+        }
+
+        .legend-box.optimal { background: #d4edda; border-color: var(--accent-green); }
+        .legend-box.suboptimal { background: #fff3cd; border-color: #ffc107; }
+        .legend-box.poor { background: #f8d7da; border-color: #dc3545; }
+
+        /* Cost Comparison */
+        .cost-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cost-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .cost-card.recommended {
+            border-top-color: var(--accent-green);
+            box-shadow: 0 6px 12px rgba(0,204,102,0.2);
+        }
+
+        .cost-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+        }
+
+        .cost-card.recommended .cost-amount {
+            color: var(--accent-green);
+        }
+
+        .cost-breakdown {
+            text-align: left;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .cost-breakdown li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Signage Gallery */
+        .signage-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .signage-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .signage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .signage-visual {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signage-card-content {
+            padding: 1.5rem;
+        }
+
+        .signage-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Interactive Calculator */
+        .charger-calculator {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .calc-slider {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .calc-output {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .calc-output h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .calc-output .number {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 80px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-number {
+                left: 30px;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Factors Grid */
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .factor-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .factor-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .factor-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="currentColor"/>
+                </svg>
+                <a href="index.html" style="color: inherit; text-decoration: none;">Carolina Recharge</a>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#ev-guide">EV Guide</a></li>
+                <li><a href="index.html#calculator">ROI Calculator</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span>Site Assessment & Planning</span>
+        </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>🔍 Site Assessment & Planning</h1>
+            <p>Strategic placement and design of EV charging infrastructure to maximize efficiency, minimize costs, and optimize user experience</p>
+        </div>
+    </section>
+
+    <!-- Our Process Timeline -->
+    <section class="process-timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Assessment Process</h2>
+                <p>A comprehensive 5-step approach to designing your optimal charging solution</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Initial Site Visit</h3>
+                        <p>We conduct an on-site evaluation of your property, documenting parking layout, traffic patterns, building access, and existing electrical infrastructure.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Parking space inventory and mapping</li>
+                            <li>Peak usage time analysis</li>
+                            <li>Pedestrian and vehicle flow assessment</li>
+                            <li>Photo documentation</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Electrical Assessment</h3>
+                        <p>Our certified electricians evaluate your current electrical capacity and identify the most cost-effective power source options.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Main panel capacity review</li>
+                            <li>Distance to power sources</li>
+                            <li>Conduit routing planning</li>
+                            <li>Load management recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Demand Analysis</h3>
+                        <p>We analyze your specific needs based on property type, expected usage, and growth projections to determine optimal charger quantity and type.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>User demographic analysis</li>
+                            <li>Dwell time estimation</li>
+                            <li>Future growth modeling</li>
+                            <li>Level 2 vs. DC Fast Charging evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Cost Optimization</h3>
+                        <p>We develop multiple scenarios comparing installation costs, operational expenses, and available incentives to find your best ROI.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Equipment cost comparison</li>
+                            <li>Installation labor estimates</li>
+                            <li>Incentive application planning</li>
+                            <li>Operational cost projections</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-number">4</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Final Design & Plan</h3>
+                        <p>We deliver a comprehensive site plan with charger locations, electrical routing, signage placement, and phased implementation timeline.</p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Detailed site layout drawings</li>
+                            <li>Equipment specifications</li>
+                            <li>Signage and wayfinding plan</li>
+                            <li>Implementation roadmap</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-number">5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimal Placement Strategy -->
+    <section class="diagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Charger Placement</h2>
+                <p>Location is everything. We analyze multiple factors to identify the most cost-effective installation sites.</p>
+            </div>
+
+            <div class="diagram-container">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-blue);">Sample Parking Lot Analysis</h3>
+                
+                <svg class="parking-lot-diagram" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Building -->
+                    <rect x="50" y="50" width="200" height="150" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+                    <text x="150" y="125" text-anchor="middle" fill="white" font-size="16" font-weight="bold">BUILDING</text>
+                    <text x="150" y="145" text-anchor="middle" fill="white" font-size="12">Main Electrical</text>
+                    
+                    <!-- Electrical Panel Icon -->
+                    <rect x="240" y="100" width="30" height="40" fill="#ffc107" stroke="#ff9800" stroke-width="2"/>
+                    <circle cx="255" cy="120" r="3" fill="#fff"/>
+                    
+                    <!-- Parking Spots - Row 1 (Closest to building - OPTIMAL) -->
+                    <rect class="parking-spot optimal" x="300" y="60" width="80" height="40" rx="5" onclick="showSpotInfo('optimal')"/>
+                    <text x="340" y="85" text-anchor="middle" font-size="12">Zone A</text>
+                    
+                    <rect class="parking-spot optimal" x="400" y="60" width="80" height="40" rx="5" onclick="showSpotInfo('optimal')"/>
+                    <text x="440" y="85" text-anchor="middle" font-size="12">Zone A</text>
+                    
+                    <rect class="parking-spot optimal" x="500" y="60" width="80" height="40" rx="5" onclick="showSpotInfo('optimal')"/>
+                    <text x="540" y="85" text-anchor="middle" font-size="12">Zone A</text>
+                    
+                    <rect class="parking-spot optimal" x="600" y="60" width="80" height="40" rx="5" onclick="showSpotInfo('optimal')"/>
+                    <text x="640" y="85" text-anchor="middle" font-size="12">Zone A</text>
+                    
+                    <!-- Charger Icons on Optimal Spots -->
+                    <g class="charger-icon">
+                        <rect x="335" y="50" width="10" height="15" fill="var(--accent-green)"/>
+                        <path d="M337 47 L343 47 L340 43 Z" fill="var(--accent-green)"/>
+                    </g>
+                    <g class="charger-icon">
+                        <rect x="535" y="50" width="10" height="15" fill="var(--accent-green)"/>
+                        <path d="M537 47 L543 47 L540 43 Z" fill="var(--accent-green)"/>
+                    </g>
+                    
+                    <!-- Parking Spots - Row 2 (Medium distance - SUBOPTIMAL) -->
+                    <rect class="parking-spot suboptimal" x="300" y="130" width="80" height="40" rx="5"/>
+                    <text x="340" y="155" text-anchor="middle" font-size="12">Zone B</text>
+                    
+                    <rect class="parking-spot suboptimal" x="400" y="130" width="80" height="40" rx="5"/>
+                    <text x="440" y="155" text-anchor="middle" font-size="12">Zone B</text>
+                    
+                    <rect class="parking-spot suboptimal" x="500" y="130" width="80" height="40" rx="5"/>
+                    <text x="540" y="155" text-anchor="middle" font-size="12">Zone B</text>
+                    
+                    <rect class="parking-spot suboptimal" x="600" y="130" width="80" height="40" rx="5"/>
+                    <text x="640" y="155" text-anchor="middle" font-size="12">Zone B</text>
+                    
+                    <!-- Parking Spots - Row 3 (Far from building - POOR) -->
+                    <rect class="parking-spot poor" x="300" y="200" width="80" height="40" rx="5"/>
+                    <text x="340" y="225" text-anchor="middle" font-size="12">Zone C</text>
+                    
+                    <rect class="parking-spot poor" x="400" y="200" width="80" height="40" rx="5"/>
+                    <text x="440" y="225" text-anchor="middle" font-size="12">Zone C</text>
+                    
+                    <rect class="parking-spot poor" x="500" y="200" width="80" height="40" rx="5"/>
+                    <text x="540" y="225" text-anchor="middle" font-size="12">Zone C</text>
+                    
+                    <rect class="parking-spot poor" x="600" y="200" width="80" height="40" rx="5"/>
+                    <text x="640" y="225" text-anchor="middle" font-size="12">Zone C</text>
+                    
+                    <!-- Distance Lines -->
+                    <line x1="250" y1="120" x2="300" y2="80" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="260" y="95" font-size="11" fill="#ff9800">50 ft</text>
+                    
+                    <line x1="250" y1="120" x2="300" y2="150" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="260" y="138" font-size="11" fill="#ff9800">120 ft</text>
+                    
+                    <line x1="250" y1="120" x2="300" y2="220" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="260" y="175" font-size="11" fill="#ff9800">200 ft</text>
+                    
+                    <!-- Entry/Exit -->
+                    <text x="400" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#6c757d">↓ ENTRANCE ↓</text>
+                    
+                    <!-- Additional elements -->
+                    <rect x="50" y="250" width="100" height="80" fill="#90ee90" stroke="#228b22" stroke-width="2"/>
+                    <text x="100" y="295" text-anchor="middle" font-size="12">Landscaping</text>
+                    
+                    <!-- ADA Spot -->
+                    <rect class="parking-spot optimal" x="300" y="280" width="80" height="40" rx="5"/>
+                    <text x="340" y="305" text-anchor="middle" font-size="16">♿</text>
+                    <text x="340" y="317" text-anchor="middle" font-size="10">ADA</text>
+                </svg>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-box optimal"></div>
+                        <span><strong>Zone A - Optimal:</strong> Low installation cost, high visibility, close to building</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box suboptimal"></div>
+                        <span><strong>Zone B - Moderate:</strong> Medium installation cost, adequate visibility</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box poor"></div>
+                        <span><strong>Zone C - Poor:</strong> High installation cost, low visibility, inconvenient</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="factors-grid">
+                <div class="factor-card">
+                    <h4><span class="factor-icon">📏</span> Distance to Power</h4>
+                    <p>Every foot of conduit adds $15-30 to installation costs. We prioritize spots closest to electrical sources.</p>
+                </div>
+                <div class="factor-card">
+                    <h4><span class="factor-icon">👁️</span> Visibility</h4>
+                    <p>Chargers near building entrances or high-traffic areas increase usage and provide security.</p>
+                </div>
+                <div class="factor-card">
+                    <h4><span class="factor-icon">🚗</span> Traffic Flow</h4>
+                    <p>Analyze entry/exit patterns to avoid bottlenecks and ensure easy access for EV drivers.</p>
+                </div>
+                <div class="factor-card">
+                    <h4><span class="factor-icon">♿</span> ADA Compliance</h4>
+                    <p>Ensure accessible parking spots are equipped with chargers meeting accessibility standards.</p>
+                </div>
+                <div class="factor-card">
+                    <h4><span class="factor-icon">🌳</span> Site Obstacles</h4>
+                    <p>Account for landscaping, light poles, storm drains, and underground utilities in routing.</p>
+                </div>
+                <div class="factor-card">
+                    <h4><span class="factor-icon">📈</span> Future Expansion</h4>
+                    <p>Plan conduit runs to accommodate additional chargers as demand grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charger Quantity Calculator -->
+    <section class="diagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Determining the Right Number of Chargers</h2>
+                <p>We use data-driven analysis to recommend the optimal charger quantity for your property</p>
+            </div>
+
+            <div class="charger-calculator">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Interactive Charger Calculator</h3>
+                
+                <div class="calc-input">
+                    <label for="parking-spaces">Total Parking Spaces:</label>
+                    <input type="range" id="parking-spaces" class="calc-slider" min="10" max="500" value="100" oninput="calculateChargers()">
+                    <div style="text-align: center; font-weight: bold; margin-top: 0.5rem;">
+                        <span id="spaces-value">100</span> spaces
+                    </div>
+                </div>
+
+                <div class="calc-input">
+                    <label for="ev-percentage">Expected EV Drivers (%):</label>
+                    <input type="range" id="ev-percentage" class="calc-slider" min="1" max="50" value="10" oninput="calculateChargers()">
+                    <div style="text-align: center; font-weight: bold; margin-top: 0.5rem;">
+                        <span id="ev-value">10</span>%
+                    </div>
+                </div>
+
+                <div class="calc-input">
+                    <label for="dwell-time">Average Dwell Time (hours):</label>
+                    <input type="range" id="dwell-time" class="calc-slider" min="1" max="12" value="4" step="0.5" oninput="calculateChargers()">
+                    <div style="text-align: center; font-weight: bold; margin-top: 0.5rem;">
+                        <span id="dwell-value">4</span> hours
+                    </div>
+                </div>
+
+                <div class="calc-output">
+                    <h3>Recommended Chargers</h3>
+                    <div class="number" id="recommended-chargers">4-6</div>
+                    <p style="margin-top: 1rem; opacity: 0.9;">Based on current demand + 3-year growth projection</p>
+                    <div style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
+                        <p><strong>Today:</strong> <span id="current-need">4</span> chargers</p>
+                        <p><strong>Year 3:</strong> <span id="future-need">6</span> chargers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 3rem auto; padding: 2rem; background: var(--light-gray); border-radius: 10px;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Our Methodology</h3>
+                <p style="margin-bottom: 1rem;"><strong>We consider multiple factors:</strong></p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Property Type:</strong> Commercial, multifamily, workplace, retail, or hospitality</li>
+                    <li><strong>User Demographics:</strong> Employees, residents, customers, or visitors</li>
+                    <li><strong>Parking Turnover:</strong> High turnover (retail) vs. low turnover (workplace)</li>
+                    <li><strong>Dwell Time:</strong> How long vehicles typically remain parked</li>
+                    <li><strong>EV Adoption Trends:</strong> Current and projected EV ownership in your area</li>
+                    <li><strong>Peak Demand:</strong> Maximum simultaneous charging needs</li>
+                    <li><strong>Growth Projections:</strong> 3-5 year expansion planning</li>
+                </ul>
+                <p style="margin-top: 1rem;"><em>Typical ratio: 1 charger per 10-20 parking spaces for most commercial properties, adjusted based on these factors.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Optimization Scenarios -->
+    <section class="diagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cost Optimization: Smart vs. Standard Installation</h2>
+                <p>Strategic planning can reduce installation costs by 30-50%</p>
+            </div>
+
+            <div class="cost-comparison">
+                <div class="cost-card">
+                    <h3>❌ Standard Approach</h3>
+                    <div class="cost-amount">$48,000</div>
+                    <p style="margin: 1rem 0; color: #6c757d;">4 chargers - Poor planning</p>
+                    <ul class="cost-breakdown">
+                        <li>✗ Far from electrical panel</li>
+                        <li>✗ Requires 300 ft trenching</li>
+                        <li>✗ Panel upgrade needed</li>
+                        <li>✗ Complex permitting</li>
+                        <li>✗ Extended installation time</li>
+                    </ul>
+                </div>
+
+                <div class="cost-card recommended">
+                    <h3>✅ Carolina Recharge Method</h3>
+                    <div class="cost-amount">$28,000</div>
+                    <p style="margin: 1rem 0; color: #6c757d;">4 chargers - Optimized placement</p>
+                    <ul class="cost-breakdown">
+                        <li>✓ Near existing electrical source</li>
+                        <li>✓ Only 80 ft conduit run</li>
+                        <li>✓ No panel upgrade required</li>
+                        <li>✓ Simplified permitting</li>
+                        <li>✓ Faster installation</li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(0,204,102,0.1); border-radius: 5px;">
+                        <strong style="color: var(--accent-green); font-size: 1.2rem;">Savings: $20,000 (42%)</strong>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🚀 Phased Approach</h3>
+                    <div class="cost-amount">$32,000</div>
+                    <p style="margin: 1rem 0; color: #6c757d;">Phase 1: 2 chargers<br>Phase 2: 2 more (Year 2)</p>
+                    <ul class="cost-breakdown">
+                        <li>✓ Lower initial investment</li>
+                        <li>✓ Test demand first</li>
+                        <li>✓ Pre-wired for expansion</li>
+                        <li>✓ Spread costs over time</li>
+                        <li>✓ Capture evolving incentives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signage & Wayfinding -->
+    <section class="diagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signage & Wayfinding Strategy</h2>
+                <p>Proper signage ensures chargers are found, used correctly, and accessible to all users</p>
+            </div>
+
+            <div class="signage-gallery">
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: var(--accent-green);">
+                        <svg width="120" height="120" viewBox="0 0 120 120">
+                            <path d="M60 10 L50 50 L70 50 L60 110 L80 60 L65 60 Z" fill="white" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>Directional Signs</h3>
+                        <p><strong>Location:</strong> Main entrances and key intersections</p>
+                        <p><strong>Purpose:</strong> Guide drivers to charging area</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>High-visibility green background</li>
+                            <li>Reflective materials for night visibility</li>
+                            <li>Clear distance indicators</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: linear-gradient(135deg, #0066cc 0%, #00cc66 100%);">
+                        <div style="color: white; text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚡</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">EV CHARGING</div>
+                            <div style="font-size: 1rem; margin-top: 0.5rem;">ONLY</div>
+                        </div>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>Parking Spot Signs</h3>
+                        <p><strong>Location:</strong> At each charging station</p>
+                        <p><strong>Purpose:</strong> Reserve spots for EV charging</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Post-mounted or wall-mounted</li>
+                            <li>"EV Charging Only" designation</li>
+                            <li>Towing policy information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: var(--primary-blue);">
+                        <div style="color: white; text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📱</div>
+                            <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">HOW TO CHARGE</div>
+                            <div style="font-size: 0.8rem; text-align: left; line-height: 1.6;">
+                                1. Park & plug in<br>
+                                2. Tap card or scan QR<br>
+                                3. Charging begins<br>
+                                4. Unplug when done
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>Instructional Signs</h3>
+                        <p><strong>Location:</strong> On or near charging units</p>
+                        <p><strong>Purpose:</strong> First-time user guidance</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Step-by-step instructions</li>
+                            <li>Payment/access information</li>
+                            <li>Customer support contact</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: #ffc107;">
+                        <div style="color: #333; text-align: center; padding: 1rem;">
+                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚠️</div>
+                            <div style="font-size: 1.3rem; font-weight: bold;">4 HOUR LIMIT</div>
+                            <div style="font-size: 1rem; margin-top: 0.5rem;">When Charging</div>
+                        </div>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>Policy Signs</h3>
+                        <p><strong>Location:</strong> At charging area entrance</p>
+                        <p><strong>Purpose:</strong> Communicate usage rules</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Time limits (if applicable)</li>
+                            <li>Idle fees notification</li>
+                            <li>Operating hours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: var(--white); border: 3px solid var(--primary-blue);">
+                        <div style="color: var(--primary-blue); text-align: center; padding: 1rem;">
+                            <div style="font-size: 3rem;">♿</div>
+                            <div style="font-size: 1.3rem; font-weight: bold; margin-top: 0.5rem;">ACCESSIBLE</div>
+                            <div style="font-size: 1rem; margin-top: 0.3rem;">EV Charging</div>
+                        </div>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>ADA-Compliant Signs</h3>
+                        <p><strong>Location:</strong> Accessible parking spaces</p>
+                        <p><strong>Purpose:</strong> Designate accessible charging</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>International Symbol of Access</li>
+                            <li>Meets ADA height requirements</li>
+                            <li>High contrast for visibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signage-card">
+                    <div class="signage-visual" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div style="color: white; text-align: center; padding: 1.5rem;">
+                            <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 0.5rem;">Carolina Recharge</div>
+                            <div style="font-size: 1rem;">Powered by</div>
+                            <div style="font-size: 1.2rem; margin-top: 0.3rem;">[Network Name]</div>
+                        </div>
+                    </div>
+                    <div class="signage-card-content">
+                        <h3>Branding Signs</h3>
+                        <p><strong>Location:</strong> Charging station area</p>
+                        <p><strong>Purpose:</strong> Brand visibility and marketing</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Property/business branding</li>
+                            <li>Network provider logo</li>
+                            <li>Sustainability messaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 3rem auto; padding: 2rem; background: var(--accent-green); color: white; border-radius: 10px;">
+                <h3 style="margin-bottom: 1rem;">✅ Carolina Recharge Signage Package Includes:</h3>
+                <ul style="line-height: 2;">
+                    <li>All required signage for ADA and local code compliance</li>
+                    <li>Custom design matching your property branding</li>
+                    <li>Durable, weather-resistant materials</li>
+                    <li>Professional installation and mounting</li>
+                    <li>Reflective and illuminated options available</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Optimize Your EV Charging Installation?</h2>
+            <p>Get a free site assessment and customized plan from our expert team</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#contact" class="button-primary" style="background: white; color: var(--primary-blue);">Schedule Free Assessment</a>
+                <a href="index.html#calculator" class="button-secondary">See ROI Calculator</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Carolina Recharge</h3>
+                    <p>North Carolina's trusted partner for EV charging infrastructure solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="site-assessment.html">Site Assessment & Planning</a></li>
+                        <li><a href="index.html#services">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: daniel.black@carolinarecharge.com</p>
+                    <p>Phone: (919) 555-0100</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carolina Recharge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Page Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Charger Calculator
+        function calculateChargers() {
+            const spaces = parseInt(document.getElementById('parking-spaces').value);
+            const evPercentage = parseInt(document.getElementById('ev-percentage').value);
+            const dwellTime = parseFloat(document.getElementById('dwell-time').value);
+            
+            // Update display values
+            document.getElementById('spaces-value').textContent = spaces;
+            document.getElementById('ev-value').textContent = evPercentage;
+            document.getElementById('dwell-value').textContent = dwellTime;
+            
+            // Calculate current need
+            const evDrivers = Math.ceil((spaces * evPercentage) / 100);
+            const turnoverFactor = dwellTime > 6 ? 0.3 : (dwellTime > 3 ? 0.5 : 0.8);
+            const currentNeed = Math.max(2, Math.ceil(evDrivers * turnoverFactor));
+            
+            // Calculate future need (3-year projection with 25% annual growth)
+            const growthFactor = 1.25 * 1.25 * 1.25; // 3 years of 25% growth
+            const futureNeed = Math.ceil(currentNeed * growthFactor);
+            
+            // Update display
+            document.getElementById('current-need').textContent = currentNeed;
+            document.getElementById('future-need').textContent = futureNeed;
+            document.getElementById('recommended-chargers').textContent = `${currentNeed}-${futureNeed}`;
+        }
+
+        // Show spot info
+        function showSpotInfo(zone) {
+            let message = '';
+            if (zone === 'optimal') {
+                message = '✅ OPTIMAL LOCATION\n\n• Low installation cost\n• High visibility\n• Easy access\n• Close to electrical panel';
+            } else if (zone === 'suboptimal') {
+                message = '⚠️ MODERATE LOCATION\n\n• Medium installation cost\n• Adequate visibility\n• Longer conduit run required';
+            } else {
+                message = '❌ POOR LOCATION\n\n• High installation cost\n• Low visibility\n• Inconvenient for users\n• Extensive trenching needed';
+            }
+            alert(message);
+        }
+
+        // Initialize calculator
+        calculateChargers();
+    </script>
+</body>
+</html>
