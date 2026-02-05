@@ -666,18 +666,24 @@
         <div class="container">
             <div class="form-container">
                 <div id="success-message" class="success-message">
-                    Thank you! We'll be in touch within 24 hours to discuss your EV charging needs.
+                    Thank you for your interest! You'll be redirected to a confirmation page, then you can return here. We'll contact you within 24 hours.
                 </div>
                 <h2>Start Your EV Charging Journey</h2>
                 <p>Get a free consultation and customized proposal for your property</p>
-                <form id="lead-form" onsubmit="handleFormSubmit(event)">
+                <form id="lead-form" action="https://formspree.io/f/xykdgnbg" method="POST">
+                    <input type="hidden" name="_subject" value="New EV Charging Consultation Request - Carolina Recharge">
+                    <!-- UPDATE THIS: Replace with your actual GitHub Pages URL -->
+                    <!-- Example: https://yourusername.github.io/carolina-recharge/#thankyou -->
+                    <input type="hidden" name="_next" value="https://yourusername.github.io/your-repo-name/#thankyou">
+                    <input type="text" name="_gotcha" style="display:none">
+                    
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="_replyto" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
@@ -685,7 +691,7 @@
                     </div>
                     <div class="form-group">
                         <label for="property-type">Property Type *</label>
-                        <select id="property-type" name="property-type" required>
+                        <select id="property-type" name="property_type" required>
                             <option value="">Select one...</option>
                             <option value="commercial">Commercial Building</option>
                             <option value="multifamily">Multifamily Residential</option>
@@ -717,6 +723,23 @@
                     </div>
                     <button type="submit" class="submit-button">Request Free Consultation</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section id="thankyou" class="lead-form-section" style="display: none;">
+        <div class="container">
+            <div class="form-container" style="text-align: center; padding: 3rem 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                <h2 style="color: var(--dark-gray); margin-bottom: 1rem;">Thank You!</h2>
+                <p style="color: #7f8c8d; font-size: 1.2rem; margin-bottom: 2rem;">
+                    We've received your consultation request and will contact you within 24 hours.
+                </p>
+                <p style="color: #7f8c8d; margin-bottom: 2rem;">
+                    A confirmation has been sent to your email address.
+                </p>
+                <a href="#services" class="button-primary">Learn More About Our Services</a>
             </div>
         </div>
     </section>
@@ -896,7 +919,7 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: info@carolinarecharge.com</p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0460656a6d61682a666865676f446765766b686d6a657661676c657663612a676b69">[email&#160;protected]</a></p>
                     <p>Phone: (919) 555-0100</p>
                     <p style="margin-top: 1rem;">
                         <a href="#contact" class="cta-button">Schedule Consultation</a>
@@ -909,7 +932,14 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Check if user is returning from form submission
+        if (window.location.hash === '#thankyou') {
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('thankyou').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('nav-menu');
@@ -931,8 +961,6 @@
                 }
             });
         });
-
-        // FAQ Toggle
         function toggleFAQ(element) {
             const faqItem = element.parentElement;
             const answer = faqItem.querySelector('.faq-answer');
@@ -965,34 +993,6 @@
         // Initialize calculator
         calculateROI();
 
-        // Form Submission Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            // In a real implementation, you would send this to your backend/CRM
-            console.log('Form submitted with data:', data);
-            
-            // Show success message
-            document.getElementById('success-message').classList.add('show');
-            
-            // Reset form
-            event.target.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('success-message').classList.remove('show');
-            }, 5000);
-            
-            // Scroll to success message
-            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
-            
-            return false;
-        }
-
         // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -1003,18 +1003,4 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards and guide cards
-        document.querySelectorAll('.service-card, .guide-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-    </script>
-</body>
-</html>
+                    entry.target
