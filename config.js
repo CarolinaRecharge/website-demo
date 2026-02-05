@@ -20,7 +20,7 @@ const CONFIG = {
         formUrl: "https://formspree.io/f/xykdgnbg",
         // Your GitHub Pages URL (update after deployment)
         // Example: "https://yourusername.github.io/your-repo-name"
-        websiteUrl: "https://yourusername.github.io/your-repo-name"
+        websiteUrl: "https://CarolinaRecharge.github.io/website-demo"
     },
 
     // ==========================================
