@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Carolina Recharge</title>
+  <meta name="description" content="Thank you for contacting Carolina Recharge. We'll be in touch within one business day.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .thankyou-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 24px 80px;
+      background: linear-gradient(165deg, var(--cloud-white) 0%, #E8F2FF 40%, var(--pure-white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .thankyou-section::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(10,122,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .thankyou-section .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(10,122,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,122,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .thankyou-card {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 88px; height: 88px;
+      margin: 0 auto 28px;
+      background: rgba(16,185,129,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .success-icon svg {
+      width: 40px; height: 40px;
+      color: var(--energy-green);
+    }
+    .success-icon-ring {
+      position: absolute;
+      width: 88px; height: 88px;
+      border: 2px solid rgba(16,185,129,0.2);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    .thankyou-card h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--deep-navy);
+      margin-bottom: 16px;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+      opacity: 0;
+    }
+    .thankyou-card h1 span { color: var(--electric-blue); }
+    .thankyou-card > p {
+      font-size: 1.1rem;
+      color: var(--slate-gray);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .next-steps {
+      background: var(--pure-white);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(30,58,138,0.06);
+      text-align: left;
+      animation: fadeUp 0.6s ease 0.3s forwards;
+      opacity: 0;
+    }
+    .next-steps h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--deep-navy);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .next-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+    }
+    .next-step-item:not(:last-child) {
+      border-bottom: 1px solid rgba(30,58,138,0.05);
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      background: rgba(10,122,255,0.08);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--electric-blue);
+      flex-shrink: 0;
+    }
+    .next-step-item p {
+      color: var(--slate-gray);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .next-step-item p strong {
+      color: var(--deep-navy);
+    }
+
+    .thankyou-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.4s forwards;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-horizontal.png" alt="Carolina Recharge">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">
+          Schedule a Call
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- THANK YOU -->
+  <section class="thankyou-section">
+    <div class="hero-grid"></div>
+    <div class="thankyou-card">
+      <div class="success-icon" style="position:relative;">
+        <div class="success-icon-ring"></div>
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+
+      <h1>Thank You for <span>Reaching Out</span></h1>
+      <p>We've received your message and Daniel will be in touch within one business day to schedule your call.</p>
+
+      <div class="next-steps">
+        <h3>What Happens Next</h3>
+        <div class="next-step-item">
+          <div class="step-num">1</div>
+          <p><strong>We review your submission</strong> and prepare for a productive conversation about your property.</p>
+        </div>
+        <div class="next-step-item">
+          <div class="step-num">2</div>
+          <p><strong>Daniel reaches out</strong> within one business day to schedule your 15-minute call at a time that works for you.</p>
+        </div>
+        <div class="next-step-item">
+          <div class="step-num">3</div>
+          <p><strong>On the call,</strong> we'll discuss your property, answer questions, and outline what EV charging options make sense for your situation.</p>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="btn btn-primary">
+          Back to Home
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-outline">
+          Explore Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo-horizontal.png" alt="Carolina Recharge">
+          <p>Engineering-backed EV charging solutions for Triad properties. Local expertise. Capital-efficient models. Future-proof infrastructure.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a href="mailto:daniel.black@carolinarecharge.com">daniel.black@carolinarecharge.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:+13365551234">(336) 555-1234</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+              <span>Winston-Salem, NC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Carolina Recharge. All rights reserved.</span>
+        <span class="footer-tagline">Powering Carolina's Electric Future</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
+  </script>
+
+</body>
+</html>

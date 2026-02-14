@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Carolina Recharge | Schedule Your EV Charging Assessment</title>
+  <meta name="description" content="Schedule a 15-minute call with Carolina Recharge to discuss EV charging infrastructure for your property. Serving Winston-Salem, Greensboro, and High Point.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      padding: 80px 0;
+    }
+
+    /* Contact info side */
+    .contact-info h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--deep-navy);
+      margin-bottom: 16px;
+    }
+    .contact-info h2 span { color: var(--electric-blue); }
+    .contact-info > p {
+      color: var(--slate-gray);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--cloud-white);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(30,58,138,0.05);
+      transition: var(--transition);
+    }
+    .contact-method:hover {
+      border-color: rgba(10,122,255,0.15);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-method-icon {
+      width: 44px; height: 44px;
+      background: rgba(10,122,255,0.08);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--electric-blue);
+      flex-shrink: 0;
+    }
+    .contact-method-icon svg { width: 20px; height: 20px; }
+    .contact-method-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+      margin-bottom: 4px;
+    }
+    .contact-method-value {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--deep-navy);
+    }
+    .contact-method-value a {
+      color: var(--deep-navy);
+    }
+    .contact-method-value a:hover { color: var(--electric-blue); }
+
+    /* Expect box */
+    .expect-box {
+      background: linear-gradient(135deg, var(--deep-navy) 0%, #0F2659 100%);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      color: var(--pure-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .expect-box::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -20%;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(10,122,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .expect-box h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .expect-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .expect-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+    .expect-item svg {
+      width: 18px; height: 18px;
+      color: var(--electric-blue);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Form side */
+    .contact-form-wrap {
+      background: var(--pure-white);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(30,58,138,0.06);
+    }
+    .contact-form-wrap h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--deep-navy);
+      margin-bottom: 6px;
+    }
+    .contact-form-wrap > p {
+      color: var(--slate-gray);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-submit {
+      margin-top: 8px;
+    }
+    .form-submit .btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 1.02rem;
+      padding: 16px 32px;
+    }
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--slate-gray);
+      margin-top: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-horizontal.png" alt="Carolina Recharge">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html" class="nav-cta">
+          Schedule a Call
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-grid"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="hero-badge fade-up">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        No Obligation, Just Expertise
+      </div>
+      <h1 class="fade-up fade-up-d1">Let's Talk About <span>Your Property</span></h1>
+      <p class="fade-up fade-up-d2">Schedule a 15-minute call to discuss what EV charging infrastructure could look like for your property. No pressure — just engineering expertise.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT CONTENT -->
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info">
+          <h2>Get in <span>Touch</span></h2>
+          <p>Whether you're ready for a full site assessment or just exploring options, we're here to answer your questions with real engineering expertise — not a sales pitch.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Email</div>
+                <div class="contact-method-value"><a href="mailto:daniel.black@carolinarecharge.com">daniel.black@carolinarecharge.com</a></div>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Phone</div>
+                <div class="contact-method-value"><a href="tel:+13365551234">(336) 555-1234</a></div>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Location</div>
+                <div class="contact-method-value">Winston-Salem, North Carolina</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="expect-box">
+            <h3>What to Expect on Our Call</h3>
+            <div class="expect-list">
+              <div class="expect-item">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>Quick overview of your property and current infrastructure</span>
+              </div>
+              <div class="expect-item">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>Discussion of EV charging options that fit your situation</span>
+              </div>
+              <div class="expect-item">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>Ballpark cost ranges and available incentives</span>
+              </div>
+              <div class="expect-item">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>Clear next steps — only if you're ready to move forward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="contact-form-wrap">
+          <h3>Schedule a 15-Minute Call</h3>
+          <p>Fill out the form below and we'll reach out within one business day.</p>
+
+          <form action="https://formspree.io/f/xykdgnbg" method="POST">
+            <!-- Formspree redirect to thank you page -->
+            <input type="hidden" name="_next" value="thank-you.html">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="you@company.com">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(336) 555-1234">
+            </div>
+
+            <div class="form-group">
+              <label for="propertyName">Property Name</label>
+              <input type="text" id="propertyName" name="propertyName" placeholder="e.g., Hanes Park Apartments">
+            </div>
+
+            <div class="form-group">
+              <label for="propertyType">Property Type</label>
+              <select id="propertyType" name="propertyType">
+                <option value="" disabled selected>Select your property type</option>
+                <option value="Multifamily Apartment">Multifamily Apartment</option>
+                <option value="Office Building">Office Building</option>
+                <option value="Retail / Shopping Center">Retail / Shopping Center</option>
+                <option value="Hotel / Hospitality">Hotel / Hospitality</option>
+                <option value="Mixed Use">Mixed Use</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell Us About Your Project</label>
+              <textarea id="message" name="message" placeholder="Any details about your property, goals, or questions you have..."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Schedule My Call
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+            <p class="form-note">We respond within one business day. No spam, ever.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo-horizontal.png" alt="Carolina Recharge">
+          <p>Engineering-backed EV charging solutions for Triad properties. Local expertise. Capital-efficient models. Future-proof infrastructure.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a href="mailto:daniel.black@carolinarecharge.com">daniel.black@carolinarecharge.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:+13365551234">(336) 555-1234</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+              <span>Winston-Salem, NC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Carolina Recharge. All rights reserved.</span>
+        <span class="footer-tagline">Powering Carolina's Electric Future</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
+  </script>
+
+</body>
+</html>

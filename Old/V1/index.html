@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Recharge - EV Charging Solutions & Consulting in North Carolina</title>
+    <meta name="description" content="Expert EV charging consulting services in North Carolina. We help businesses and property owners plan, install, and manage electric vehicle charging infrastructure.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="currentColor"/>
+                </svg>
+                Carolina Recharge
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#ev-guide">EV Guide</a></li>
+                <li><a href="#calculator">ROI Calculator</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Power the Future of Transportation in North Carolina</h1>
+            <p>Expert EV charging infrastructure consulting for businesses, property owners, and fleet operators</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="button-primary">Schedule Free Consultation</a>
+                <a href="#services" class="button-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <strong>100+</strong>
+                    <span>Charging Stations Deployed</span>
+                </div>
+                <div class="trust-item">
+                    <strong>NC Certified</strong>
+                    <span>Licensed Consultants</span>
+                </div>
+                <div class="trust-item">
+                    <strong>$500K+</strong>
+                    <span>In Incentives Secured</span>
+                </div>
+                <div class="trust-item">
+                    <strong>24/7</strong>
+                    <span>Support Available</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive EV Charging Solutions</h2>
+                <p>From planning to ongoing management, we handle every aspect of your EV charging infrastructure</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Site Assessment & Planning</h3>
+                    <p>We evaluate your property, analyze electrical capacity, determine optimal charger placement, and create a customized deployment roadmap tailored to your needs.</p>
+                    <a href="site-assessment.html" style="display: inline-block; margin-top: 1rem; color: var(--primary-blue); font-weight: 600; text-decoration: none;">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Incentives & Financing</h3>
+                    <p>Navigate federal, state, and utility rebates. We help you access NC tax credits, Duke Energy incentives, and federal programs to maximize ROI.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Installation Management</h3>
+                    <p>Connect with certified electricians, manage permits, coordinate with utilities, and ensure code-compliant installation from start to finish.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Network Integration</h3>
+                    <p>Set up payment systems, configure charging networks, implement user authentication, and integrate with property management systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Fleet Electrification</h3>
+                    <p>Design charging infrastructure for commercial fleets, optimize charging schedules, analyze total cost of ownership, and plan for scalability.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Maintenance coordination, troubleshooting assistance, usage analytics, and expansion planning to keep your charging stations running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Form Section -->
+    <section id="contact" class="lead-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div id="success-message" class="success-message">
+                    Thank you for your interest! You'll be redirected to a confirmation page, then you can return here. We'll contact you within 24 hours.
+                </div>
+                <h2>Start Your EV Charging Journey</h2>
+                <p>Get a free consultation and customized proposal for your property</p>
+                <form id="lead-form" action="https://formspree.io/f/xykdgnbg" method="POST">
+                    <input type="hidden" name="_subject" value="New EV Charging Consultation Request - Carolina Recharge">
+                    <!-- UPDATE THIS: Replace with your actual GitHub Pages URL -->
+                    <!-- Example: https://yourusername.github.io/carolina-recharge/#thankyou -->
+                    <input type="hidden" name="_next" value="https://yourusername.github.io/your-repo-name/#thankyou">
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="_replyto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="property-type">Property Type *</label>
+                        <select id="property-type" name="property_type" required>
+                            <option value="">Select one...</option>
+                            <option value="commercial">Commercial Building</option>
+                            <option value="multifamily">Multifamily Residential</option>
+                            <option value="workplace">Workplace</option>
+                            <option value="retail">Retail/Shopping Center</option>
+                            <option value="fleet">Fleet Operations</option>
+                            <option value="hospitality">Hotel/Hospitality</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Property Location (City/County) *</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Project Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select one...</option>
+                            <option value="immediate">Ready to start now</option>
+                            <option value="1-3months">1-3 months</option>
+                            <option value="3-6months">3-6 months</option>
+                            <option value="6-12months">6-12 months</option>
+                            <option value="planning">Just planning/exploring</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your project</label>
+                        <textarea id="message" name="message" placeholder="Number of charging stations needed, specific challenges, or questions..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Request Free Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section id="thankyou" class="lead-form-section" style="display: none;">
+        <div class="container">
+            <div class="form-container" style="text-align: center; padding: 3rem 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                <h2 style="color: var(--dark-gray); margin-bottom: 1rem;">Thank You!</h2>
+                <p style="color: #7f8c8d; font-size: 1.2rem; margin-bottom: 2rem;">
+                    We've received your consultation request and will contact you within 24 hours.
+                </p>
+                <p style="color: #7f8c8d; margin-bottom: 2rem;">
+                    A confirmation has been sent to your email address.
+                </p>
+                <a href="#services" class="button-primary">Learn More About Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EV Charging Guide -->
+    <section id="ev-guide" class="ev-guide">
+        <div class="container">
+            <div class="section-header">
+                <h2>Understanding EV Charging</h2>
+                <p>Essential information to help you make informed decisions</p>
+            </div>
+            <div class="guide-content">
+                <div class="guide-card">
+                    <h3>Charging Levels Explained</h3>
+                    <ul>
+                        <li><strong>Level 1:</strong> Standard 120V outlet, 3-5 miles/hour (home use)</li>
+                        <li><strong>Level 2:</strong> 240V, 12-80 miles/hour (most common for businesses)</li>
+                        <li><strong>DC Fast Charging:</strong> 480V+, 100-200+ miles in 30 min (highway/retail)</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>Business Benefits</h3>
+                    <ul>
+                        <li>Attract and retain EV-driving customers and tenants</li>
+                        <li>Demonstrate environmental leadership</li>
+                        <li>Generate revenue from charging fees</li>
+                        <li>Increase property value and marketability</li>
+                        <li>Meet sustainability and ESG goals</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>North Carolina Incentives</h3>
+                    <ul>
+                        <li>Federal Tax Credit: Up to 30% of costs (max $100K)</li>
+                        <li>NC State Tax Credit: Available for qualifying installations</li>
+                        <li>Duke Energy Rebates: Up to $4,000 per port</li>
+                        <li>Local utility programs and grants</li>
+                        <li>VW Settlement funds for public charging</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>Key Considerations</h3>
+                    <ul>
+                        <li>Electrical panel capacity and upgrade costs</li>
+                        <li>Parking layout and ADA accessibility</li>
+                        <li>Network vs. standalone chargers</li>
+                        <li>Payment processing and user access</li>
+                        <li>Maintenance and warranty coverage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2>EV Charging ROI Calculator</h2>
+                <p>Estimate your potential return on investment</p>
+            </div>
+            <div class="calculator-tool">
+                <div class="calc-input">
+                    <label for="num-chargers">Number of Charging Stations:</label>
+                    <input type="number" id="num-chargers" value="4" min="1" max="100" oninput="calculateROI()">
+                </div>
+                <div class="calc-input">
+                    <label for="daily-sessions">Average Daily Charging Sessions (per charger):</label>
+                    <input type="number" id="daily-sessions" value="3" min="1" max="20" oninput="calculateROI()">
+                </div>
+                <div class="calc-input">
+                    <label for="fee-per-session">Fee per Session ($):</label>
+                    <input type="number" id="fee-per-session" value="5" min="0" step="0.5" oninput="calculateROI()">
+                </div>
+                <div class="calc-result">
+                    <h3>Estimated Monthly Revenue</h3>
+                    <div class="amount" id="monthly-revenue">$1,800</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Based on your inputs. Actual results may vary. This doesn't include electricity costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about EV charging infrastructure</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How much does it cost to install EV charging stations?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Costs vary widely based on several factors: charger type (Level 2 vs DC Fast), number of stations, electrical infrastructure needs, and site conditions. A typical Level 2 commercial installation ranges from $5,000-$15,000 per port including equipment and installation. However, with available incentives, your net cost can be 30-50% lower. We provide detailed cost estimates during our free consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What incentives are available in North Carolina?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>North Carolina offers multiple incentive programs: Federal tax credits covering up to 30% of costs (Alternative Fuel Infrastructure Tax Credit), Duke Energy and other utility rebates, NC state tax credits for eligible installations, and VW Settlement funds for public charging. We help you identify and apply for all applicable programs to maximize your savings.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does installation typically take?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Timeline varies by project complexity. A typical installation involves: 1-2 weeks for site assessment and design, 2-4 weeks for permitting and utility coordination, and 1-3 days for physical installation. Total timeframe is usually 6-12 weeks from project kickoff to operational chargers. We can expedite critical projects when needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need to upgrade my electrical service?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It depends on your existing electrical capacity and the number/type of chargers you plan to install. Our site assessment includes a thorough electrical evaluation. Many properties have sufficient capacity for 2-4 Level 2 chargers without upgrades. For larger installations, we explore load management systems and phased approaches to minimize upgrade costs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Should I choose networked or standalone chargers?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Networked chargers offer remote monitoring, payment processing, usage data, and user access control through a cloud-based platform. They're ideal for revenue generation and customer access. Standalone chargers are simpler and lower-cost, best for employee-only use or free charging programs. We help you choose based on your specific business goals and budget.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What ongoing maintenance is required?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>EV chargers are relatively low-maintenance. Regular tasks include periodic inspection of cables and connectors, software updates (for networked stations), and occasional cleaning. Most manufacturers offer 3-year warranties, with extended coverage available. We can coordinate maintenance services and provide troubleshooting support to ensure maximum uptime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Carolina Recharge</h3>
+                    <p>North Carolina's trusted partner for EV charging infrastructure solutions.</p>
+                    <p style="margin-top: 1rem;">Serving all of North Carolina including Charlotte, Raleigh, Durham, Greensboro, Winston-Salem, and surrounding areas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Site Assessment</a></li>
+                        <li><a href="#services">Incentives & Financing</a></li>
+                        <li><a href="#services">Installation Management</a></li>
+                        <li><a href="#services">Fleet Electrification</a></li>
+                        <li><a href="#services">Ongoing Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#ev-guide">EV Charging Guide</a></li>
+                        <li><a href="#calculator">ROI Calculator</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="781c1916111d14561a14191b13381b190a17141116190a1d1b10190a1f1d561b1715">[email&#160;protected]</a></p>
+                    <p>Phone: (919) 555-0100</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="#contact" class="cta-button">Schedule Consultation</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carolina Recharge. All rights reserved. | Serving North Carolina's EV charging infrastructure needs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Configuration (loads f
