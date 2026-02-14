@@ -114,10 +114,10 @@ ul { list-style: none; }
   height: 76px;
 }
 .nav-logo img {
-  height: 168px;
+  height: 126px;
   width: auto;
-  max-height: 168px;
-  max-width: 880px;
+  max-height: 126px;
+  max-width: 6600px;
   object-fit: contain;
 }
 .nav-links {
