@@ -41,6 +41,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
+svg { flex-shrink: 0; }
+
+/* Defensive SVG sizing — prevents SVGs from blowing up */
+.hero-badge svg,
+.nav-cta svg,
+.visual-badge svg { width: 14px; height: 14px; }
+.btn svg,
+.footer-contact-item svg { width: 18px; height: 18px; }
+.card-icon svg { width: 26px; height: 26px; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 
@@ -107,6 +116,9 @@ ul { list-style: none; }
 .nav-logo img {
   height: 42px;
   width: auto;
+  max-height: 42px;
+  max-width: 220px;
+  object-fit: contain;
 }
 .nav-links {
   display: flex;
@@ -574,7 +586,7 @@ section {
   line-height: 1.7;
   max-width: 320px;
 }
-.footer-brand img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+.footer-brand img { height: 36px; width: auto; max-height: 36px; max-width: 200px; object-fit: contain; filter: brightness(0) invert(1); }
 .footer-heading {
   font-family: var(--font-display);
   font-weight: 700;
