@@ -154,7 +154,7 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 36px;
+  padding: 14px 48px;
   background: var(--electric-blue);
   color: var(--pure-white) !important;
   font-family: var(--font-display);
@@ -225,7 +225,7 @@ ul { list-style: none; }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1rem;
-  padding: 16px 48px;
+  padding: 18px 72px;
   border-radius: 50px;
   border: none;
   cursor: pointer;
@@ -261,7 +261,7 @@ ul { list-style: none; }
   transform: translateY(-2px);
   box-shadow: 0 6px 28px rgba(0,0,0,0.15);
 }
-.btn-lg { padding: 20px 56px; font-size: 1.05rem; }
+.btn-lg { padding: 24px 84px; font-size: 1.05rem; }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ============================================
