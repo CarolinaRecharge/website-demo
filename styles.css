@@ -114,9 +114,9 @@ ul { list-style: none; }
   height: 100px;
 }
 .nav-logo img {
-  height: 126px;
+  height: 90px;
   width: auto;
-  max-height: 126px;
+  max-height: 90px;
   max-width: 6600px;
   object-fit: contain;
 }
