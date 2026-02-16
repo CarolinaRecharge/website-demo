@@ -154,7 +154,7 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 24px;
+  padding: 10px 48px;
   background: var(--electric-blue);
   color: var(--pure-white) !important;
   font-family: var(--font-display);
