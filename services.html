@@ -146,6 +146,67 @@
       line-height: 1.65;
     }
 
+    /* Pricing factors box */
+    .pricing-factors {
+      border: 1px solid rgba(10,122,255,0.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .pricing-factors-header {
+      background: rgba(10,122,255,0.07);
+      padding: 10px 18px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--electric-blue);
+    }
+    .pricing-factors-body {
+      padding: 16px 18px 20px;
+    }
+    .pricing-factors-body > p {
+      font-size: 0.875rem;
+      color: var(--slate-gray);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .pricing-factor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .pricing-factor-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--deep-navy);
+      line-height: 1.45;
+    }
+    .pricing-factor-item::before {
+      content: '';
+      width: 6px;
+      min-width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--electric-blue);
+      margin-top: 5px;
+    }
+    .pricing-factors-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--electric-blue);
+      text-decoration: none;
+    }
+    .pricing-factors-cta:hover { text-decoration: underline; }
+
     @media (max-width: 1024px) {
       .service-block { grid-template-columns: 1fr; gap: 36px; }
       .service-block.reverse .service-content { order: 1; }
@@ -225,9 +286,22 @@
               <span>Site layout design &amp; ADA compliance review</span>
             </div>
           </div>
-          <div class="service-price">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            $2,000 – $7,000 depending on complexity
+          <div class="pricing-factors">
+            <div class="pricing-factors-header">Pricing Based on Site Size &amp; Complexity</div>
+            <div class="pricing-factors-body">
+              <p>Every property is different. Assessment scope — and cost — scales with the size and complexity of your site. Key factors that determine pricing:</p>
+              <div class="pricing-factor-list">
+                <div class="pricing-factor-item">Number of parking spaces and lot configuration</div>
+                <div class="pricing-factor-item">Number of buildings and distance to electrical service</div>
+                <div class="pricing-factor-item">Age and capacity of existing panels and wiring</div>
+                <div class="pricing-factor-item">Panel upgrade or service entrance requirements</div>
+                <div class="pricing-factor-item">Permitting complexity for your jurisdiction</div>
+              </div>
+              <a href="contact.html" class="pricing-factors-cta">
+                Get a Custom Quote
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="service-visual">
@@ -293,9 +367,21 @@
               <span>3-5 year flexible lease terms</span>
             </div>
           </div>
-          <div class="service-price">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            $200/month per dual-port charger
+          <div class="pricing-factors">
+            <div class="pricing-factors-header">Pricing Based on Charger Type &amp; Power Level</div>
+            <div class="pricing-factors-body">
+              <p>Monthly rates reflect the charger's capability, power output, and service complexity. Factors that affect pricing:</p>
+              <div class="pricing-factor-list">
+                <div class="pricing-factor-item">Charger type — Level 2 single-port, dual-port, or DC fast charger</div>
+                <div class="pricing-factor-item">Power output and charging speed requirements</div>
+                <div class="pricing-factor-item">Number of units installed at your property</div>
+                <div class="pricing-factor-item">Lease term length</div>
+              </div>
+              <a href="contact.html" class="pricing-factors-cta">
+                Discuss Your Property
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="service-visual">
@@ -330,7 +416,7 @@
               </div>
               <div class="visual-detail-row">
                 <span class="label">Monthly Fee</span>
-                <span class="value highlight">$200/charger</span>
+                <span class="value highlight">Varies by Charger Type</span>
               </div>
             </div>
           </div>
