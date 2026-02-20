@@ -146,14 +146,14 @@
       line-height: 1.65;
     }
 
-    /* Tiered pricing table */
-    .pricing-tiers {
+    /* Pricing factors box */
+    .pricing-factors {
       border: 1px solid rgba(10,122,255,0.15);
       border-radius: var(--radius-md);
       overflow: hidden;
       margin-top: 8px;
     }
-    .pricing-tier-header {
+    .pricing-factors-header {
       background: rgba(10,122,255,0.07);
       padding: 10px 18px;
       font-family: var(--font-display);
@@ -163,56 +163,49 @@
       text-transform: uppercase;
       color: var(--electric-blue);
     }
-    .pricing-tier-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      border-top: 1px solid rgba(10,122,255,0.08);
-      gap: 16px;
+    .pricing-factors-body {
+      padding: 16px 18px 20px;
     }
-    .pricing-tier-row:last-child { border-bottom: none; }
-    .tier-info {
+    .pricing-factors-body > p {
+      font-size: 0.875rem;
+      color: var(--slate-gray);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .pricing-factor-list {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 8px;
+      margin-bottom: 18px;
     }
-    .tier-name {
+    .pricing-factor-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--deep-navy);
+      line-height: 1.45;
+    }
+    .pricing-factor-item::before {
+      content: '';
+      width: 6px;
+      min-width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--electric-blue);
+      margin-top: 5px;
+    }
+    .pricing-factors-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--deep-navy);
-    }
-    .tier-desc {
-      font-size: 0.78rem;
-      color: var(--slate-gray);
-    }
-    .tier-price {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       color: var(--electric-blue);
-      white-space: nowrap;
+      text-decoration: none;
     }
-    .tier-badge {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 20px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-    .tier-badge-popular {
-      background: rgba(16,185,129,0.12);
-      color: var(--energy-green);
-    }
-    .tier-badge-speed {
-      background: rgba(245,158,11,0.12);
-      color: var(--charge-orange);
-    }
+    .pricing-factors-cta:hover { text-decoration: underline; }
 
     @media (max-width: 1024px) {
       .service-block { grid-template-columns: 1fr; gap: 36px; }
@@ -293,28 +286,21 @@
               <span>Site layout design &amp; ADA compliance review</span>
             </div>
           </div>
-          <div class="pricing-tiers">
-            <div class="pricing-tier-header">Assessment Pricing — by Site Size &amp; Complexity</div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">Small Property</span>
-                <span class="tier-desc">Up to 50 parking spaces · Single building · Standard electrical</span>
+          <div class="pricing-factors">
+            <div class="pricing-factors-header">Pricing Based on Site Size &amp; Complexity</div>
+            <div class="pricing-factors-body">
+              <p>Every property is different. Assessment scope — and cost — scales with the size and complexity of your site. Key factors that determine pricing:</p>
+              <div class="pricing-factor-list">
+                <div class="pricing-factor-item">Number of parking spaces and lot configuration</div>
+                <div class="pricing-factor-item">Number of buildings and distance to electrical service</div>
+                <div class="pricing-factor-item">Age and capacity of existing panels and wiring</div>
+                <div class="pricing-factor-item">Panel upgrade or service entrance requirements</div>
+                <div class="pricing-factor-item">Permitting complexity for your jurisdiction</div>
               </div>
-              <span class="tier-price">$2,000 – $3,000</span>
-            </div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">Mid-Size Property</span>
-                <span class="tier-desc">51–150 spaces · Mixed layouts · Moderate infrastructure complexity</span>
-              </div>
-              <span class="tier-price">$3,000 – $5,000</span>
-            </div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">Large / Complex Property</span>
-                <span class="tier-desc">150+ spaces · Multi-building · High-complexity or aging electrical</span>
-              </div>
-              <span class="tier-price">$5,000 – $7,000</span>
+              <a href="contact.html" class="pricing-factors-cta">
+                Get a Custom Quote
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -381,28 +367,20 @@
               <span>3-5 year flexible lease terms</span>
             </div>
           </div>
-          <div class="pricing-tiers">
-            <div class="pricing-tier-header">Monthly Rate — by Charger Type</div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">Level 2 · Single-Port</span>
-                <span class="tier-desc">One EV at a time · Ideal for assigned resident parking</span>
+          <div class="pricing-factors">
+            <div class="pricing-factors-header">Pricing Based on Charger Type &amp; Power Level</div>
+            <div class="pricing-factors-body">
+              <p>Monthly rates reflect the charger's capability, power output, and service complexity. Factors that affect pricing:</p>
+              <div class="pricing-factor-list">
+                <div class="pricing-factor-item">Charger type — Level 2 single-port, dual-port, or DC fast charger</div>
+                <div class="pricing-factor-item">Power output and charging speed requirements</div>
+                <div class="pricing-factor-item">Number of units installed at your property</div>
+                <div class="pricing-factor-item">Lease term length</div>
               </div>
-              <span class="tier-price">$125/mo</span>
-            </div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">Level 2 · Dual-Port <span class="tier-badge tier-badge-popular">Most Common</span></span>
-                <span class="tier-desc">Two simultaneous sessions · Best for shared lots &amp; offices</span>
-              </div>
-              <span class="tier-price">$200/mo</span>
-            </div>
-            <div class="pricing-tier-row">
-              <div class="tier-info">
-                <span class="tier-name">DC Fast Charger (DCFC) <span class="tier-badge tier-badge-speed">High Speed</span></span>
-                <span class="tier-desc">Up to 50 kW · Ideal for retail, hospitality &amp; high-turnover lots</span>
-              </div>
-              <span class="tier-price">$350/mo</span>
+              <a href="contact.html" class="pricing-factors-cta">
+                Discuss Your Property
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -438,7 +416,7 @@
               </div>
               <div class="visual-detail-row">
                 <span class="label">Monthly Fee</span>
-                <span class="value highlight">$125–$350/charger</span>
+                <span class="value highlight">Varies by Charger Type</span>
               </div>
             </div>
           </div>
