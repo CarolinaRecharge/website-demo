@@ -146,6 +146,74 @@
       line-height: 1.65;
     }
 
+    /* Tiered pricing table */
+    .pricing-tiers {
+      border: 1px solid rgba(10,122,255,0.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .pricing-tier-header {
+      background: rgba(10,122,255,0.07);
+      padding: 10px 18px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--electric-blue);
+    }
+    .pricing-tier-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-top: 1px solid rgba(10,122,255,0.08);
+      gap: 16px;
+    }
+    .pricing-tier-row:last-child { border-bottom: none; }
+    .tier-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tier-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--deep-navy);
+    }
+    .tier-desc {
+      font-size: 0.78rem;
+      color: var(--slate-gray);
+    }
+    .tier-price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--electric-blue);
+      white-space: nowrap;
+    }
+    .tier-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tier-badge-popular {
+      background: rgba(16,185,129,0.12);
+      color: var(--energy-green);
+    }
+    .tier-badge-speed {
+      background: rgba(245,158,11,0.12);
+      color: var(--charge-orange);
+    }
+
     @media (max-width: 1024px) {
       .service-block { grid-template-columns: 1fr; gap: 36px; }
       .service-block.reverse .service-content { order: 1; }
@@ -225,9 +293,29 @@
               <span>Site layout design &amp; ADA compliance review</span>
             </div>
           </div>
-          <div class="service-price">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            $2,000 – $7,000 depending on complexity
+          <div class="pricing-tiers">
+            <div class="pricing-tier-header">Assessment Pricing — by Site Size &amp; Complexity</div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">Small Property</span>
+                <span class="tier-desc">Up to 50 parking spaces · Single building · Standard electrical</span>
+              </div>
+              <span class="tier-price">$2,000 – $3,000</span>
+            </div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">Mid-Size Property</span>
+                <span class="tier-desc">51–150 spaces · Mixed layouts · Moderate infrastructure complexity</span>
+              </div>
+              <span class="tier-price">$3,000 – $5,000</span>
+            </div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">Large / Complex Property</span>
+                <span class="tier-desc">150+ spaces · Multi-building · High-complexity or aging electrical</span>
+              </div>
+              <span class="tier-price">$5,000 – $7,000</span>
+            </div>
           </div>
         </div>
         <div class="service-visual">
@@ -293,9 +381,29 @@
               <span>3-5 year flexible lease terms</span>
             </div>
           </div>
-          <div class="service-price">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            $200/month per dual-port charger
+          <div class="pricing-tiers">
+            <div class="pricing-tier-header">Monthly Rate — by Charger Type</div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">Level 2 · Single-Port</span>
+                <span class="tier-desc">One EV at a time · Ideal for assigned resident parking</span>
+              </div>
+              <span class="tier-price">$125/mo</span>
+            </div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">Level 2 · Dual-Port <span class="tier-badge tier-badge-popular">Most Common</span></span>
+                <span class="tier-desc">Two simultaneous sessions · Best for shared lots &amp; offices</span>
+              </div>
+              <span class="tier-price">$200/mo</span>
+            </div>
+            <div class="pricing-tier-row">
+              <div class="tier-info">
+                <span class="tier-name">DC Fast Charger (DCFC) <span class="tier-badge tier-badge-speed">High Speed</span></span>
+                <span class="tier-desc">Up to 50 kW · Ideal for retail, hospitality &amp; high-turnover lots</span>
+              </div>
+              <span class="tier-price">$350/mo</span>
+            </div>
           </div>
         </div>
         <div class="service-visual">
@@ -330,7 +438,7 @@
               </div>
               <div class="visual-detail-row">
                 <span class="label">Monthly Fee</span>
-                <span class="value highlight">$200/charger</span>
+                <span class="value highlight">$125–$350/charger</span>
               </div>
             </div>
           </div>
