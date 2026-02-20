@@ -45,22 +45,27 @@
     }
     .visual-stat {
       text-align: center;
-      padding: 20px;
+      padding: 20px 16px;
       background: var(--cloud-white);
       border-radius: var(--radius-sm);
     }
-    .visual-stat .num {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 2rem;
+    .visual-stat .offering-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(10,122,255,0.1);
+      border-radius: var(--radius-sm);
+      margin: 0 auto 10px;
       color: var(--electric-blue);
-      line-height: 1;
     }
-    .visual-stat .label {
-      font-size: 0.8rem;
-      color: var(--slate-gray);
-      margin-top: 6px;
-      font-weight: 500;
+    .visual-stat .offering-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--deep-navy);
+      line-height: 1.35;
     }
     .visual-badge {
       display: inline-flex;
@@ -300,20 +305,28 @@
           <div class="hero-visual-card">
             <div class="visual-stat-grid">
               <div class="visual-stat">
-                <div class="num">70%</div>
-                <div class="label">Lower Upfront Cost</div>
+                <div class="offering-icon">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="offering-title">24hr Response Time</div>
               </div>
               <div class="visual-stat">
-                <div class="num">30%</div>
-                <div class="label">Federal Tax Credit</div>
+                <div class="offering-icon">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 017 7h2m6 10h2a5 5 0 000-10h-2m-7 5h8"/></svg>
+                </div>
+                <div class="offering-title">Detailed Site Analysis &amp; Report</div>
               </div>
               <div class="visual-stat">
-                <div class="num">500+</div>
-                <div class="label">Triad Properties</div>
+                <div class="offering-icon">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div class="offering-title">Hand in Hand Project Management</div>
               </div>
               <div class="visual-stat">
-                <div class="num">24hr</div>
-                <div class="label">Local Response</div>
+                <div class="offering-icon">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div class="offering-title">Fully Managed Charging Equipment</div>
               </div>
             </div>
             <div class="visual-badge">
